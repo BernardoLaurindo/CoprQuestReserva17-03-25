@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CQBTG</title>
+    <!-- Essa parte carrega os arquivos do phaser. -->
+    <script src="src/phaser.js"></script>
+    <!-- Essa parte carrega arquivos JavaScript (no caso as partes do jogo) dentro do HTML. -->
+    <script src="src/scenes/welcome.js"></script>
+    <script src="src/scenes/menu.js"></script>
+    <script src="src/scenes/cenaTutorial.js"></script>
+    <script src="src/scenes/cenaControles.js"></script>
+    <script src="src/scenes/cenaFAQ.js"></script>
+    <script src="src/scenes/Cena1Fase1.js"></script>
+    <script src="src/scenes/cenaPause.js"></script>
+    <style>
+        body {
+            margin: 0;
+            display: flex;
+            overflow: hidden;
+            padding: 0;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: black;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Essa parte configura o jogo Phaser. -->
+    <script>
+        const config = {
+            type: Phaser.AUTO,
+            width: 1280,
+            height: 720,
+            physics: {
+                default: 'arcade',  // Ativa o motor de física
+                arcade: {
+                    debug: false,  // Exibe as hitboxes para depuração
+                    gravity: { y: 0 }  // Define a gravidade como zero (pois o jogo é 2D sem pulo)
+                }
+            },
+            scene: [welcome, menu, cenaTutorial, cenaControles, cenaFAQ, cena1fase1, cenaPause] // Defini quais cenas o jogo terá e a ordem de inicialização.
+        };
+
+        const game = new Phaser.Game(config);
+    </script>
+</body>
+
+</html>
